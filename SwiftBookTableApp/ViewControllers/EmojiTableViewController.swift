@@ -9,11 +9,11 @@ import UIKit
 
 class EmojiTableViewController: UITableViewController {
     
-    let emojies = Emoji.getEmoji()
+    var objects = Emoji.getEmoji()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         title = "Emoji Reader"
         navigationItem.leftBarButtonItem = self.editButtonItem
     }
@@ -21,37 +21,33 @@ class EmojiTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        emojies.count
-        
+        objects.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "emojiCell",
             for: indexPath
-        )
-                as? EmojiTableViewCell else { return UITableViewCell() }
+        ) as? EmojiTableViewCell else { return UITableViewCell() }
         
-        let object = emojies[indexPath.row]
+        let object = objects[indexPath.row]
         cell.set(object: object)
-        
-        
-        
-        
-        
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            objects.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let moveEmoji = objects.remove(at: sourceIndexPath.row)
+        objects.insert(moveEmoji, at: destinationIndexPath.row)
+        tableView.reloadData()
+    }
 }
