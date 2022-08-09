@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		F47F4FD728A28E6E0087D116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F4FD628A28E6E0087D116 /* AppDelegate.swift */; };
 		F47F4FD928A28E6E0087D116 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F4FD828A28E6E0087D116 /* SceneDelegate.swift */; };
-		F47F4FDB28A28E6E0087D116 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F4FDA28A28E6E0087D116 /* ViewController.swift */; };
 		F47F4FDE28A28E6E0087D116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47F4FDC28A28E6E0087D116 /* Main.storyboard */; };
 		F47F4FE028A28E700087D116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47F4FDF28A28E700087D116 /* Assets.xcassets */; };
 		F47F4FE328A28E700087D116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47F4FE128A28E700087D116 /* LaunchScreen.storyboard */; };
+		F47F4FEB28A28F730087D116 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F4FEA28A28F730087D116 /* EmojiTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F47F4FD328A28E6E0087D116 /* SwiftBookTableApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBookTableApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47F4FD628A28E6E0087D116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47F4FD828A28E6E0087D116 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F47F4FDA28A28E6E0087D116 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F47F4FDD28A28E6E0087D116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F47F4FDF28A28E700087D116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F47F4FE228A28E700087D116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F47F4FE428A28E700087D116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F47F4FEA28A28F730087D116 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			children = (
 				F47F4FD628A28E6E0087D116 /* AppDelegate.swift */,
 				F47F4FD828A28E6E0087D116 /* SceneDelegate.swift */,
-				F47F4FDA28A28E6E0087D116 /* ViewController.swift */,
+				F47F4FEA28A28F730087D116 /* EmojiTableViewController.swift */,
 				F47F4FDC28A28E6E0087D116 /* Main.storyboard */,
 				F47F4FDF28A28E700087D116 /* Assets.xcassets */,
 				F47F4FE128A28E700087D116 /* LaunchScreen.storyboard */,
@@ -138,8 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F47F4FDB28A28E6E0087D116 /* ViewController.swift in Sources */,
 				F47F4FD728A28E6E0087D116 /* AppDelegate.swift in Sources */,
+				F47F4FEB28A28F730087D116 /* EmojiTableViewController.swift in Sources */,
 				F47F4FD928A28E6E0087D116 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +304,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -332,7 +332,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
