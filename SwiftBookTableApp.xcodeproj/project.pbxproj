@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F472C6F028A29D8B00D2CBE3 /* EmojiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472C6EF28A29D8B00D2CBE3 /* EmojiTableViewCell.swift */; };
+		F472C6F228A2A29400D2CBE3 /* EmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472C6F128A2A29400D2CBE3 /* EmojiModel.swift */; };
 		F47F4FD728A28E6E0087D116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F4FD628A28E6E0087D116 /* AppDelegate.swift */; };
 		F47F4FD928A28E6E0087D116 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F4FD828A28E6E0087D116 /* SceneDelegate.swift */; };
 		F47F4FDE28A28E6E0087D116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47F4FDC28A28E6E0087D116 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F472C6EF28A29D8B00D2CBE3 /* EmojiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewCell.swift; sourceTree = "<group>"; };
+		F472C6F128A2A29400D2CBE3 /* EmojiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiModel.swift; sourceTree = "<group>"; };
 		F47F4FD328A28E6E0087D116 /* SwiftBookTableApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBookTableApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47F4FD628A28E6E0087D116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47F4FD828A28E6E0087D116 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F472C6F328A2A62100D2CBE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F472C6F128A2A29400D2CBE3 /* EmojiModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F472C6F428A2A63000D2CBE3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F47F4FD628A28E6E0087D116 /* AppDelegate.swift */,
+				F47F4FD828A28E6E0087D116 /* SceneDelegate.swift */,
+				F47F4FE428A28E700087D116 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F472C6F528A2A63F00D2CBE3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F47F4FDC28A28E6E0087D116 /* Main.storyboard */,
+				F47F4FE128A28E700087D116 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F472C6F628A2A65300D2CBE3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F47F4FEA28A28F730087D116 /* EmojiTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F472C6F728A2A66F00D2CBE3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F47F4FDF28A28E700087D116 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F472C6F828A2A81200D2CBE3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F472C6EF28A29D8B00D2CBE3 /* EmojiTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F47F4FCA28A28E6E0087D116 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +111,12 @@
 		F47F4FD528A28E6E0087D116 /* SwiftBookTableApp */ = {
 			isa = PBXGroup;
 			children = (
-				F47F4FD628A28E6E0087D116 /* AppDelegate.swift */,
-				F47F4FD828A28E6E0087D116 /* SceneDelegate.swift */,
-				F47F4FEA28A28F730087D116 /* EmojiTableViewController.swift */,
-				F47F4FDC28A28E6E0087D116 /* Main.storyboard */,
-				F47F4FDF28A28E700087D116 /* Assets.xcassets */,
-				F47F4FE128A28E700087D116 /* LaunchScreen.storyboard */,
-				F47F4FE428A28E700087D116 /* Info.plist */,
+				F472C6F428A2A63000D2CBE3 /* App */,
+				F472C6F628A2A65300D2CBE3 /* ViewControllers */,
+				F472C6F828A2A81200D2CBE3 /* Views */,
+				F472C6F328A2A62100D2CBE3 /* Models */,
+				F472C6F528A2A63F00D2CBE3 /* Storyboards */,
+				F472C6F728A2A66F00D2CBE3 /* Resources */,
 			);
 			path = SwiftBookTableApp;
 			sourceTree = "<group>";
@@ -140,6 +194,8 @@
 			files = (
 				F47F4FD728A28E6E0087D116 /* AppDelegate.swift in Sources */,
 				F47F4FEB28A28F730087D116 /* EmojiTableViewController.swift in Sources */,
+				F472C6F028A29D8B00D2CBE3 /* EmojiTableViewCell.swift in Sources */,
+				F472C6F228A2A29400D2CBE3 /* EmojiModel.swift in Sources */,
 				F47F4FD928A28E6E0087D116 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
