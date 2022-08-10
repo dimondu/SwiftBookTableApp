@@ -9,7 +9,7 @@ struct Emoji {
     let emoji: String
     let name: String
     let description: String
-    let isFavorite: Bool
+    var isFavorite: Bool
     
     static func getEmoji() -> [Emoji] {
         [
