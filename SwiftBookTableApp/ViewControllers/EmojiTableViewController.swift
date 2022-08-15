@@ -18,6 +18,16 @@ class EmojiTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
+    @IBAction func unwindSegue(_ unwindSegue: UIStoryboardSegue) {
+        guard unwindSegue.identifier == "saveSegue" else {return}
+        guard let sourceVC = unwindSegue.source as? NewEmojiTableViewController else { return }
+        let emoji = sourceVC.emoji
+        
+        let newIndexPath = IndexPath(row: objects.count, section: 0)
+        objects.append(emoji)
+        tableView.insertRows(at: [newIndexPath], with: .fade)
+    }
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,7 +38,10 @@ class EmojiTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "emojiCell",
             for: indexPath
-        ) as? EmojiTableViewCell else { return UITableViewCell() }
+        ) as? EmojiTableViewCell
+        else {
+            return UITableViewCell()
+        }
         
         let object = objects[indexPath.row]
         cell.set(object: object)
