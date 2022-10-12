@@ -9,7 +9,11 @@ import UIKit
 
 class EmojiTableViewController: UITableViewController {
     
-    var objects = Emoji.getEmoji()
+    // MARK: - Private properties
+    
+    private var objects = Emoji.getEmoji()
+    
+    // MARK: - Override methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,17 +22,66 @@ class EmojiTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "editEmoji" else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let emoji = objects[indexPath.row]
+        
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let newEmojiVC = navigationVC.topViewController as? NewEmojiTableViewController else { return }
+        
+        newEmojiVC.emoji = emoji
+        newEmojiVC.title = "Edit"
+    }
+    
+    // MARK: - IBActions
+    
     @IBAction func unwindSegue(_ unwindSegue: UIStoryboardSegue) {
         guard unwindSegue.identifier == "saveSegue" else {return}
         guard let sourceVC = unwindSegue.source as? NewEmojiTableViewController else { return }
         let emoji = sourceVC.emoji
         
-        let newIndexPath = IndexPath(row: objects.count, section: 0)
-        objects.append(emoji)
-        tableView.insertRows(at: [newIndexPath], with: .fade)
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            objects[selectedIndexPath.row] = emoji
+            tableView.reloadRows(at: [selectedIndexPath], with: .fade)
+        } else {
+            let newIndexPath = IndexPath(row: objects.count, section: 0)
+            objects.append(emoji)
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+        }
     }
     
-    // MARK: - Table view data source
+    // MARK: - Private methods
+    
+    private func doneAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Done") { action, view, completion in
+            self.objects.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        }
+        action.backgroundColor = .systemGreen
+        action.image = UIImage(systemName: "checkmark.circle")
+        return action
+    }
+    
+    private func favoriteAction(at indexPath: IndexPath) -> UIContextualAction {
+        var object = objects[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "Favorite") { action, view, completion in
+            object.isFavorite = !object.isFavorite
+            self.objects[indexPath.row] = object
+            completion(true)
+        }
+        action.backgroundColor = object.isFavorite ? .systemPurple : .systemGray
+        action.image = UIImage(systemName: "heart")
+        return action
+    }
+}
+
+// MARK: - Table view data source
+
+extension EmojiTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         objects.count
@@ -69,28 +122,4 @@ class EmojiTableViewController: UITableViewController {
         let favourite = favoriteAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [done, favourite])
     }
-    
-    private func doneAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "Done") { action, view, completion in
-            self.objects.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            completion(true)
-        }
-        action.backgroundColor = .systemGreen
-        action.image = UIImage(systemName: "checkmark.circle")
-        return action
-    }
-    
-    private func favoriteAction(at indexPath: IndexPath) -> UIContextualAction {
-        var object = objects[indexPath.row]
-        let action = UIContextualAction(style: .normal, title: "Favorite") { action, view, completion in
-            object.isFavorite = !object.isFavorite
-            self.objects[indexPath.row] = object
-            completion(true)
-        }
-        action.backgroundColor = object.isFavorite ? .systemPurple : .systemGray
-        action.image = UIImage(systemName: "heart")
-        return action
-    }
 }
-

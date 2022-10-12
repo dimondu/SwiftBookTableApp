@@ -63,6 +63,7 @@
                                     <outlet property="descriptionLabel" destination="zRm-x4-FTC" id="c6v-9i-pzl"/>
                                     <outlet property="emojiLabel" destination="17R-BC-P4w" id="aBy-JH-Ivq"/>
                                     <outlet property="nameLabel" destination="PRU-kv-3Xq" id="i8T-MD-KX0"/>
+                                    <segue destination="o1G-Tn-Gc3" kind="show" identifier="editEmoji" id="gCp-N7-acb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -90,7 +91,7 @@
             <objects>
                 <tableViewController id="gIr-XR-rIE" customClass="NewEmojiTableViewController" customModule="SwiftBookTableApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Qh6-yk-x9z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                         <sections>
@@ -216,8 +217,9 @@
         <scene sceneID="92R-L4-1PQ">
             <objects>
                 <navigationController id="o1G-Tn-Gc3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qtq-W5-7HA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8QJ-kQ-gzZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </navigationBar>
@@ -246,6 +248,9 @@
             <point key="canvasLocation" x="-577" y="85"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gCp-N7-acb"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
